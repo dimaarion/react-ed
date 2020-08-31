@@ -39,10 +39,15 @@ function App() {
       .querySelector(".toolbar")
       .appendChild(
         document.body.appendChild(document.createElement("div"))
-      ).className = "inlein_list";
+      ).className = "inlein_list col row";
     document
       .querySelector(".inlein_list")
       .appendChild(document.querySelector(".inline"));
+    const list = document
+      .querySelector(".inlein_list")
+      .appendChild(document.querySelector(".list"))
+      .getElementsByClassName("rdw-option-wrapper");
+    Object.values(list).map((x)=>console.log(x.classList.add = "col"))
   }, []);
   return (
     <div className="editor">
@@ -50,7 +55,7 @@ function App() {
         editorState={editorState}
         onEditorStateChange={onEditorStateChange}
         wrapperClassName={"container"}
-        toolbarClassName={"container row toolbar"}
+        toolbarClassName={"container  toolbar"}
         editorClassName={"container"}
         toolbar={{
           options: [
@@ -73,7 +78,7 @@ function App() {
             className: "row"
           },
           inline: { inDropdown: false, className: "row col inline" },
-          list: { inDropdown: false, className: "row col" },
+          list: { inDropdown: false, className: "row col list" },
           textAlign: { inDropdown: false, className: "row" },
           link: { inDropdown: false, className: "row" },
           history: { inDropdown: false, className: "row" },
