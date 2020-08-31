@@ -37,8 +37,11 @@ const [editorState, setEditorState] = useState(() =>
     
     return <div className='editor'>
       <Editor
+       
         editorState={editorState}
-        onEditorStateChange={onEditorStateChange}    
+        onEditorStateChange={onEditorStateChange}   
+        wrapperClassName={"container"}
+        toolbarClassName={"toolbar-class sdsdvdv"}
         toolbar={{
           inline: { inDropdown: true },
           list: { inDropdown: true },
