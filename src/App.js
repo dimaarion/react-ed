@@ -48,8 +48,8 @@ function App() {
     const list = document
       .querySelector(".inlein_list")
       .appendChild(document.querySelector(".list"))
-      .getElementsByTagName("div");
-    Object.values(list).map(x => (x.classList.add = "col"));
+      .getElementsByClassName("rdw-option-wrapper");
+    Object.values(list).map(x => (x.className = x.className.replace( /(?:^|\s)rdw-option-wrapper(?!\S)/g , 'col' )));
   }, []);
   return (
     <div className="editor">
