@@ -47,8 +47,10 @@ function App() {
         editorClassName={"container"}
         toolbar={{
           blockType: {
-            dropdownClassName: 'linkHeaders',
-            inDropdown: false 
+            
+            inDropdown: false ,
+            className: 'col-sm',
+options: ['Normal', 'H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'Blockquote', 'Code'],
             },
           inline: { inDropdown: false },
           list: { inDropdown: false },
