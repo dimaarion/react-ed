@@ -61,7 +61,8 @@ function App() {
           ],
           blockType: {
             inDropdown: false,
-            className: "row"
+            className: "row",
+            
           },
           inline: { inDropdown: false, className: "row" },
           list: { inDropdown: false, className: "row" },
