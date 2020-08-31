@@ -40,14 +40,16 @@ function App() {
       .appendChild(
         document.body.appendChild(document.createElement("div"))
       ).className = "inlein_list col row";
-   const inline = document
+    const inline = document
       .querySelector(".inlein_list")
-      .appendChild(document.querySelector(".inline"));
+      .appendChild(document.querySelector(".inline"))
+      .getElementsByTagName("div");
+    Object.values(inline).map(x => (x.classList.add = "col"));
     const list = document
       .querySelector(".inlein_list")
       .appendChild(document.querySelector(".list"))
       .getElementsByTagName("div");
-    Object.values(list).map(x => console.log((x.className = "col")));
+    Object.values(list).map(x => (x.classList.add = "col"));
   }, []);
   return (
     <div className="editor">
@@ -77,8 +79,8 @@ function App() {
             inDropdown: false,
             className: "row"
           },
-          inline: { inDropdown: false, className: "row col inline" },
-          list: { inDropdown: false, className: "row col list" },
+          inline: { inDropdown: false, className: "row col inline",dropdownClassName:"col" },
+          list: { inDropdown: false, className: "row col list" ,dropdownClassName:"col"},
           textAlign: { inDropdown: false, className: "row" },
           link: { inDropdown: false, className: "row" },
           history: { inDropdown: false, className: "row" },
