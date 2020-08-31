@@ -20,14 +20,14 @@ function uploadImageCallBack(file) {
       });
       xhr.addEventListener('error', () => {
         const error = JSON.parse(xhr.responseText);
-        reject(error);
+       // reject(error);
       });
     }
   );
 }
 
 
-class EditorContainer extends Component{
+class App extends Component{
   constructor(props){
     super(props);
     this.state = {
@@ -61,15 +61,4 @@ class EditorContainer extends Component{
   }
 }
 
-
-
-
-
-
- const App = () => (
-  <div>
-    <h2>Test with React Draft Wysiwyg.</h2>
-    <EditorContainer />
-  </div>
-);
 export default App
