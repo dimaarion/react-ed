@@ -48,14 +48,22 @@ function App() {
             inDropdown: false,
             className: "col-sm",
           },
-          inline: { inDropdown: false },
-          list: { inDropdown: false },
-          textAlign: { inDropdown: false },
-          link: { inDropdown: false },
-          history: { inDropdown: false },
+          inline: { inDropdown: false,
+          className: "col-sm",
+          },
+          list: { inDropdown: false,
+          className: "col-sm",
+           },
+          textAlign: { inDropdown: false,
+          className: "col-sm", },
+          link: { inDropdown: false ,
+          className: "col-sm",},
+          history: { inDropdown: false,
+          className: "col-sm", },
           image: {
             uploadCallback: uploadImageCallBack,
-            alt: { present: true, mandatory: true }
+            alt: { present: true, mandatory: true,
+            className: "col-sm" }
           }
         }}
       />
