@@ -34,22 +34,31 @@ function App() {
   function getSelectorEl(el, newclass) {
     return el.classList.add(newclass);
   }
-
+  useEffect(() => {
+    document
+      .querySelector(".toolbar")
+      .appendChild(
+        document.body.appendChild(document.createElement("div"))
+      ).className = "inlein_list";
+    document
+      .querySelector(".inlein_list")
+      .appendChild(document.querySelector(".inline"));
+  }, []);
   return (
     <div className="editor">
       <Editor
         editorState={editorState}
         onEditorStateChange={onEditorStateChange}
         wrapperClassName={"container"}
-        toolbarClassName={"container"}
+        toolbarClassName={"container row toolbar"}
         editorClassName={"container"}
         toolbar={{
           options: [
             "inline",
+            "list",
             "blockType",
             "fontSize",
             "fontFamily",
-            "list",
             "textAlign",
             "colorPicker",
             "link",
@@ -61,11 +70,10 @@ function App() {
           ],
           blockType: {
             inDropdown: false,
-            className: "row",
-            
+            className: "row"
           },
-          inline: { inDropdown: false, className: "row" },
-          list: { inDropdown: false, className: "row" },
+          inline: { inDropdown: false, className: "row col inline" },
+          list: { inDropdown: false, className: "row col" },
           textAlign: { inDropdown: false, className: "row" },
           link: { inDropdown: false, className: "row" },
           history: { inDropdown: false, className: "row" },
