@@ -3,6 +3,7 @@ import { render } from "react-dom";
 import { EditorState } from "draft-js";
 import { Editor } from "react-draft-wysiwyg";
 import "./bootstrap.css";
+import "./tolbar.css";
 
 function uploadImageCallBack(file) {
   return new Promise((resolve, reject) => {
@@ -29,10 +30,24 @@ function App() {
   );
   const onEditorStateChange = editorState => setEditorState(editorState);
   function getSelectorEl(el, newclass) {
-    return  el.classList.add(newclass);
+    return el.classList.add(newclass);
   }
   useEffect(() => {
-   [".rdw-dropdown-wrapper",".rdw-block-wrapper",".rdw-fontsize-wrapper",".rdw-fontfamily-wrapper",".rdw-text-align-dropdown",".rdw-list-dropdown",".rdw-colorpicker-wrapper",".rdw-link-wrapper",".rdw-embedded-wrapper",".rdw-emoji-wrapper",".rdw-image-wrapper",".rdw-remove-wrapper",".rdw-history-dropdown"].map((x)=>getSelectorEl(document.querySelector(x), "col-sm"));
+    [
+      ".rdw-dropdown-wrapper",
+      ".rdw-block-wrapper",
+      ".rdw-fontsize-wrapper",
+      ".rdw-fontfamily-wrapper",
+      ".rdw-text-align-dropdown",
+      ".rdw-list-dropdown",
+      ".rdw-colorpicker-wrapper",
+      ".rdw-link-wrapper",
+      ".rdw-embedded-wrapper",
+      ".rdw-emoji-wrapper",
+      ".rdw-image-wrapper",
+      ".rdw-remove-wrapper",
+      ".rdw-history-dropdown"
+    ].map(x => getSelectorEl(document.querySelector(x), "col-sm"));
   }, []);
 
   return (
