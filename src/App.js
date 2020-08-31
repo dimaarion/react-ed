@@ -31,19 +31,14 @@ function App (){
 const [editorState, setEditorState] = useState(() =>
     EditorState.createEmpty()
   );
-  onEditorStateChange = (editorState) => {
-    // console.log(editorState)
-    this.setState({
-      editorState,
-    });
-  };
+  const onEditorStateChange = editorState => setEditorState(editorState);
 
-  render(){
-    const { editorState } = this.state;
+ 
+    
     return <div className='editor'>
       <Editor
         editorState={editorState}
-        onEditorStateChange={this.onEditorStateChange}    
+        onEditorStateChange={onEditorStateChange}    
         toolbar={{
           inline: { inDropdown: true },
           list: { inDropdown: true },
@@ -55,6 +50,6 @@ const [editorState, setEditorState] = useState(() =>
       />
     </div>
   }
-}
+
 
 export default App
