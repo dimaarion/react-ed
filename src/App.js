@@ -46,7 +46,7 @@ function App() {
         toolbar={{
           blockType: {
             inDropdown: false,
-            className: "col-sm",
+            className: "row",
           },
           inline: { inDropdown: false,
           className: "col-sm",
