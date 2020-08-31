@@ -1,22 +1,4 @@
-      .rdw-dropdown-wrapper,
-      .rdw-block-wrapper,
-      .rdw-fontsize-wrapper,
-      .rdw-fontfamily-wrapper,
-      .rdw-text-align-dropdown,
-      .rdw-list-dropdown,
-      .rdw-colorpicker-wrapper,
-      .rdw-link-wrapper,
-      .rdw-embedded-wrapper,
-      .rdw-emoji-wrapper,
-      .rdw-image-wrapper,
-      .rdw-remove-wrapper,
-      .rdw-history-dropdown{
-        cursor: pointer;
-      }
-      .linkHeaders li::before{
-content: '';
-height: 50px;
-width: 50px;
-text-decoration: none;
-list-style: none
-      }
+     .rdw-option-wrapper{
+       cursor: pointer;
+       padding: 1%
+     }
