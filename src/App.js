@@ -41,29 +41,36 @@ function App() {
         editorState={editorState}
         onEditorStateChange={onEditorStateChange}
         wrapperClassName={"container"}
-        toolbarClassName={"container row"}
+        toolbarClassName={"container"}
         editorClassName={"container"}
         toolbar={{
+          options: [
+            "inline",
+            "blockType",
+            "fontSize",
+            "fontFamily",
+            "list",
+            "textAlign",
+            "colorPicker",
+            "link",
+            "embedded",
+            "emoji",
+            "image",
+            "remove",
+            "history"
+          ],
           blockType: {
             inDropdown: false,
-            className: "row",
+            className: "row"
           },
-          inline: { inDropdown: false,
-          className: "col-sm",
-          },
-          list: { inDropdown: false,
-          className: "col-sm",
-           },
-          textAlign: { inDropdown: false,
-          className: "col-sm", },
-          link: { inDropdown: false ,
-          className: "col-sm",},
-          history: { inDropdown: false,
-          className: "col-sm", },
+          inline: { inDropdown: false, className: "row" },
+          list: { inDropdown: false, className: "row" },
+          textAlign: { inDropdown: false, className: "row" },
+          link: { inDropdown: false, className: "row" },
+          history: { inDropdown: false, className: "row" },
           image: {
             uploadCallback: uploadImageCallBack,
-            alt: { present: true, mandatory: true,
-            className: "col-sm" }
+            alt: { present: true, mandatory: true, className: "row" }
           }
         }}
       />
