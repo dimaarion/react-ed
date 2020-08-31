@@ -32,7 +32,7 @@ function App() {
     return  el.classList.add(newclass);
   }
   useEffect(() => {
-   [".rdw-dropdown-wrapper",".rdw-block-wrapper",".rdw-fontsize-wrapper",".rdw-fontfamily-wrapper",".rdw-text-align-dropdown",".rdw-list-dropdown",".rdw-colorpicker-wrapper",".rdw-link-wrapper",".rdw-embedded-wrapper",".rdw-emoji-wrapper",".rdw-image-wrapper",".rdw-remove-wrapper"].map((x)=>getSelectorEl(document.querySelector(x), "col-sm"));
+   [".rdw-dropdown-wrapper",".rdw-block-wrapper",".rdw-fontsize-wrapper",".rdw-fontfamily-wrapper",".rdw-text-align-dropdown",".rdw-list-dropdown",".rdw-colorpicker-wrapper",".rdw-link-wrapper",".rdw-embedded-wrapper",".rdw-emoji-wrapper",".rdw-image-wrapper",".rdw-remove-wrapper",".rdw-history-dropdown"].map((x)=>getSelectorEl(document.querySelector(x), "col-sm"));
   }, []);
 
   return (
