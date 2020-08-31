@@ -13,3 +13,10 @@
       .rdw-history-dropdown{
         cursor: pointer;
       }
+      .linkHeaders li::before{
+content: '';
+height: 50px;
+width: 50px;
+text-decoration: none;
+list-style: none
+      }

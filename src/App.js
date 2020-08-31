@@ -25,13 +25,16 @@ function uploadImageCallBack(file) {
 }
 
 function App() {
+  const [headerT, setHeaderT]= useState(false)
   const [editorState, setEditorState] = useState(() =>
     EditorState.createEmpty()
   );
   const onEditorStateChange = editorState => setEditorState(editorState);
+
   function getSelectorEl(el, newclass) {
     return el.classList.add(newclass);
   }
+  
   useEffect(() => {
     [
       ".rdw-dropdown-wrapper",
@@ -59,6 +62,7 @@ function App() {
         toolbarClassName={"container row"}
         editorClassName={"container"}
         toolbar={{
+          blockType: {dropdownClassName: 'linkHeaders'},
           inline: { inDropdown: true },
           list: { inDropdown: true },
           textAlign: { inDropdown: true },
