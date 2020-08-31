@@ -25,7 +25,7 @@ function uploadImageCallBack(file) {
 }
 
 function App() {
-  const [headerT, setHeaderT]= useState(false)
+  const [headerT, setHeaderT] = useState(false);
   const [editorState, setEditorState] = useState(() =>
     EditorState.createEmpty()
   );
@@ -34,8 +34,6 @@ function App() {
   function getSelectorEl(el, newclass) {
     return el.classList.add(newclass);
   }
-  
- 
 
   return (
     <div className="editor">
@@ -47,11 +45,20 @@ function App() {
         editorClassName={"container"}
         toolbar={{
           blockType: {
-            
-            inDropdown: false ,
-            className: 'col-sm',
-options: ['Normal', 'H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'Blockquote', 'Code'],
-            },
+            inDropdown: false,
+            className: "col-sm",
+            options: [
+              "Normal",
+              "H1",
+              "H2",
+              "H3",
+              "H4",
+              "H5",
+              "H6",
+              "Blockquote",
+              "Code"
+            ]
+          },
           inline: { inDropdown: false },
           list: { inDropdown: false },
           textAlign: { inDropdown: false },
