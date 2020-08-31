@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component,useState} from 'react';
 import { render } from 'react-dom';
 import {EditorState} from "draft-js";
 import {Editor} from "react-draft-wysiwyg"
@@ -27,14 +27,10 @@ function uploadImageCallBack(file) {
 }
 
 
-class App extends Component{
-  constructor(props){
-    super(props);
-    this.state = {
-      editorState: EditorState.createEmpty(),
-    };
-  }
-
+function App (){
+const [editorState, setEditorState] = useState(() =>
+    EditorState.createEmpty()
+  );
   onEditorStateChange = (editorState) => {
     // console.log(editorState)
     this.setState({
