@@ -40,14 +40,14 @@ function App() {
       .appendChild(
         document.body.appendChild(document.createElement("div"))
       ).className = "inlein_list col row";
-    document
+   const inline = document
       .querySelector(".inlein_list")
       .appendChild(document.querySelector(".inline"));
     const list = document
       .querySelector(".inlein_list")
       .appendChild(document.querySelector(".list"))
-      .getElementsByClassName("rdw-option-wrapper");
-    Object.values(list).map((x)=>console.log(x.classList.add = "col"))
+      .getElementsByTagName("div");
+    Object.values(list).map(x => console.log((x.className = "col")));
   }, []);
   return (
     <div className="editor">
