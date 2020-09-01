@@ -8,9 +8,31 @@
        float: left;
      }
      .list{
-       width: 200px;
+       width: 160px;
        float: left;
      }
+     .fontSize{
+        width: 240px;
+        height: 40px;
+       float: left;
+     }
+     .fontSize a{
+       display: block;
+       padding: 5px;
+       cursor: pointer;
+       color: #000;
+       width: 100px;
+     }
+     .fontSize a .rdw-dropdown-carettoopen::before{
+       content: 'd';
+     }
+    .fontSize a .rdw-dropdown-carettoclose::before{
+      content: 'c';
+    }
+     .rdw-dropdown-carettoopen, .rdw-dropdown-carettoclose{
+       display: inline-block;
+     }
+     
      .rdw-option-wrapper{
        cursor: pointer;
        padding: 2%;

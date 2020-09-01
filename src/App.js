@@ -44,7 +44,7 @@ function App() {
             "list",
             "fontSize",
             "blockType",
-            
+
             "fontFamily",
             "textAlign",
             "colorPicker",
@@ -67,9 +67,21 @@ function App() {
             inDropdown: false,
             className: "list"
           },
-          textAlign: { inDropdown: false, className: "textAlign" },
-          link: { inDropdown: false, className: "link" },
-          history: { inDropdown: false, className: "history" },
+          textAlign: {
+            inDropdown: false,
+            className: "textAlign"
+          },
+          link: {
+            inDropdown: false,
+            className: "link"
+          },
+          history: {
+            inDropdown: false,
+            className: "history"
+          },
+          fontSize: {
+            className: "fontSize"
+          },
           image: {
             uploadCallback: uploadImageCallBack,
             alt: { present: true, mandatory: true, className: "image" }
