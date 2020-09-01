@@ -1,4 +1,21 @@
+     
+     .toolbar-class{
+       width: 700px;
+       height: 300px;
+     }
+     .inline{
+       width: 300px;
+       float: left;
+     }
+     .list{
+       width: 200px;
+       float: left;
+     }
      .rdw-option-wrapper{
        cursor: pointer;
-       padding: 1%
+       padding: 2%;
+       width: 40px;
+       height: 40px;
+       text-align: center;
+       display: inline-block;
      }

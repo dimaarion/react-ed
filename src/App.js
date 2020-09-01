@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { render } from "react-dom";
-import { EditorState,RichUtils } from "draft-js";
+import { EditorState, RichUtils } from "draft-js";
 import { Editor } from "react-draft-wysiwyg";
-import {Map} from 'immutable';
+import { Map } from "immutable";
 import "./bootstrap.css";
 import "./tolbar.css";
 
@@ -26,38 +26,25 @@ function uploadImageCallBack(file) {
 }
 
 function App() {
-  const [headerT, setHeaderT] = useState(false);
-  const [listClass, setlistClass] = useState(false);
   const [editorState, setEditorState] = useState(() =>
     EditorState.createEmpty()
   );
   const onEditorStateChange = editorState => setEditorState(editorState);
-
-  function getSelectorEl(el, newclass) {
-    return el.classList.add(newclass);
-  }
-
-  function bold(){
-    return console.log(setEditorState(RichUtils.toggleInlineStyle(editorState,'BOLD')))
-  }
-  
-
   return (
     <div className="editor">
-    <div onClick = {()=>bold()}>BOLD</div>
-    <div onClick = {()=>setEditorState(RichUtils.toggleBlockType(editorState,'H1'))}>TEST</div>
       <Editor
         editorState={editorState}
         onEditorStateChange={onEditorStateChange}
-        wrapperClassName={"container"}
-        toolbarClassName={"container  toolbar"}
-        editorClassName={"container"}
+        wrapperClassName="wrapper-class"
+        editorClassName="editor-class"
+        toolbarClassName="toolbar-class"
         toolbar={{
           options: [
             "inline",
             "list",
-            "blockType",
             "fontSize",
+            "blockType",
+            
             "fontFamily",
             "textAlign",
             "colorPicker",
@@ -70,19 +57,24 @@ function App() {
           ],
           blockType: {
             inDropdown: false,
-            className: "row"
+            className: "blockType"
           },
-          inline: { inDropdown: false, className: "row col inline",dropdownClassName:"col" },
-          list: { inDropdown: false, className: "row col list" ,dropdownClassName:"col", icon:{className:'ddd'}},
-          textAlign: { inDropdown: false, className: "row" },
-          link: { inDropdown: false, className: "row" },
-          history: { inDropdown: false, className: "row" },
+          inline: {
+            inDropdown: false,
+            className: "inline"
+          },
+          list: {
+            inDropdown: false,
+            className: "list"
+          },
+          textAlign: { inDropdown: false, className: "textAlign" },
+          link: { inDropdown: false, className: "link" },
+          history: { inDropdown: false, className: "history" },
           image: {
             uploadCallback: uploadImageCallBack,
-            alt: { present: true, mandatory: true, className: "row" }
+            alt: { present: true, mandatory: true, className: "image" }
           }
         }}
-      
       />
     </div>
   );
