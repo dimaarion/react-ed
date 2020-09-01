@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { render } from "react-dom";
-import { EditorState } from "draft-js";
+import { EditorState,RichUtils } from "draft-js";
 import { Editor } from "react-draft-wysiwyg";
+import {Map} from 'immutable';
 import "./bootstrap.css";
 import "./tolbar.css";
 
@@ -34,6 +35,10 @@ function App() {
   function getSelectorEl(el, newclass) {
     return el.classList.add(newclass);
   }
+
+  function bold(){
+    return setEditorState(RichUtils.toggleInlineStyle(editorState,'BOLD'))
+  }
   useEffect(() => {
     document
       .querySelector(".toolbar")
@@ -51,8 +56,18 @@ function App() {
       .getElementsByClassName("rdw-option-wrapper");
     Object.values(list).map(x => (x.className = x.className.replace( /(?:^|\s)rdw-option-wrapper(?!\S)/g , 'col' )));
   }, []);
+const blockRenderMap = Map({
+  'header-two': {
+    element: 'h2'
+  },
+  'unstyled': {
+    element: 'h2'
+  }
+});
   return (
     <div className="editor">
+    <div onClick = {()=>bold()}>BOLD</div>
+    <div onClick = {()=>setEditorState(RichUtils.toggleBlockType(editorState,'H1'))}>TEST</div>
       <Editor
         editorState={editorState}
         onEditorStateChange={onEditorStateChange}
@@ -89,6 +104,7 @@ function App() {
             alt: { present: true, mandatory: true, className: "row" }
           }
         }}
+        blockRenderMap={blockRenderMap}
       />
     </div>
   );
