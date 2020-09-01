@@ -27,6 +27,7 @@ function uploadImageCallBack(file) {
 
 function App() {
   const [headerT, setHeaderT] = useState(false);
+  const [listClass, setlistClass] = useState(false);
   const [editorState, setEditorState] = useState(() =>
     EditorState.createEmpty()
   );
@@ -37,33 +38,10 @@ function App() {
   }
 
   function bold(){
-    return setEditorState(RichUtils.toggleInlineStyle(editorState,'BOLD'))
+    return console.log(setEditorState(RichUtils.toggleInlineStyle(editorState,'BOLD')))
   }
-  useEffect(() => {
-    document
-      .querySelector(".toolbar")
-      .appendChild(
-        document.body.appendChild(document.createElement("div"))
-      ).className = "inlein_list col row";
-    const inline = document
-      .querySelector(".inlein_list")
-      .appendChild(document.querySelector(".inline"))
-      .getElementsByTagName("div");
-    Object.values(inline).map(x => (x.classList.add = "col"));
-    const list = document
-      .querySelector(".inlein_list")
-      .appendChild(document.querySelector(".list"))
-      .getElementsByClassName("rdw-option-wrapper");
-    Object.values(list).map(x => (x.className = x.className.replace( /(?:^|\s)rdw-option-wrapper(?!\S)/g , 'col' )));
-  }, []);
-const blockRenderMap = Map({
-  'header-two': {
-    element: 'h2'
-  },
-  'unstyled': {
-    element: 'h2'
-  }
-});
+  
+
   return (
     <div className="editor">
     <div onClick = {()=>bold()}>BOLD</div>
@@ -95,7 +73,7 @@ const blockRenderMap = Map({
             className: "row"
           },
           inline: { inDropdown: false, className: "row col inline",dropdownClassName:"col" },
-          list: { inDropdown: false, className: "row col list" ,dropdownClassName:"col"},
+          list: { inDropdown: false, className: "row col list" ,dropdownClassName:"col", icon:{className:'ddd'}},
           textAlign: { inDropdown: false, className: "row" },
           link: { inDropdown: false, className: "row" },
           history: { inDropdown: false, className: "row" },
@@ -104,7 +82,7 @@ const blockRenderMap = Map({
             alt: { present: true, mandatory: true, className: "row" }
           }
         }}
-        blockRenderMap={blockRenderMap}
+      
       />
     </div>
   );
