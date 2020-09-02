@@ -6,6 +6,7 @@ import { Editor } from "react-draft-wysiwyg";
 import { Map } from "immutable";
 import Move from "./Move";
 import Full from "./Full";
+import CustomOption from "./CustomOption";
 import "./bootstrap.css";
 import "./tolbar.css";
 import "./editor.css";
@@ -102,10 +103,11 @@ function App() {
             previewImage: true,
             defaultSize: {
               height: "auto",
-              width: "auto"
+              width: "100%"
             }
           }
         }}
+        toolbarCustomButtons={[<CustomOption />]}
       />
     </div>
   );

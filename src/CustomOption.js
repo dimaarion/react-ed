@@ -1,6 +1,7 @@
+import React, { useState, useEffect,Component } from "react";
 function CustomOption () {
  
     return (
-      <div onClick={this.addStar}>⭐</div>
+      <div>⭐</div>
     );
   }export default CustomOption
