@@ -90,10 +90,16 @@
    .rdw-embedded-wrapper{
      float: left;
      height: 40px;
+     width: 40px;
    }
    .rdw-image-wrapper{
       float: left;
      height: 40px;
+     width: 40px;
+   }
+   .history{
+     float: left;
+     width: 80px;
    }
     .rdw-option-wrapper{
        cursor: pointer;
