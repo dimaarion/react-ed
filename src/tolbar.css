@@ -4,7 +4,7 @@
        height: 300px;
      }
      .inline{
-       width: 300px;
+       width: 280px;
        float: left;
      }
      .list{
@@ -71,7 +71,12 @@
       float: left;
     }
    .blockType .rdw-option-wrapper{
-     width: 50px;
+     width: 40px;
+     padding: 5px;
+
+   }
+   .blockType .rdw-option-wrapper:nth-child(1){
+     width: 80px;
 
    }
     .rdw-option-wrapper{
