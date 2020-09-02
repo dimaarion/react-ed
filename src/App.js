@@ -104,6 +104,7 @@ function App() {
             alt: { present: true, mandatory: true, className: "image" }
           }
         }}
+        
       />
     </div>
   );

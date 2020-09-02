@@ -1,6 +1,7 @@
 .editor-class{
   border: solid 1px #cccccccc;
-  height: 200px;
+  height: auto;
+  min-height: 200px;
    width: 700px;
 }
 .rdw-left-aligned-block{
