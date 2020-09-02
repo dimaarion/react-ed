@@ -36,8 +36,8 @@ function App() {
   const onEditorStateChange = editorState => setEditorState(editorState);
   return (
     <div className="editor">
-      <div>
-       <Move/><Full/>
+      <div onClick = {()=>setMoveFull(moveFull === false?true:false)}>
+       {moveFull === true?<div className = "move"><Move/></div>:<div className = "full"><Full/></div>}
       </div>
       <Editor
         editorState={editorState}
