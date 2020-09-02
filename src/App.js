@@ -43,7 +43,6 @@ function App() {
             "textAlign",
             "blockType",
             "link",
-            "embedded",
             "image",
             "history"
           ],

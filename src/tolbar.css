@@ -134,7 +134,7 @@
    }
    .link{
      float: left;
-     width: 190px;
+     width: 80px;
      height: 40px;
    }
    .rdw-embedded-wrapper{
@@ -173,4 +173,50 @@
        width: 40px;
        height: 40px;
        text-align: center;
+     }
+     .rdw-link-modal{
+       width: 209px;
+       background-color: #e8e7f0;
+       padding-left: 5px;
+       padding-right: 5px;
+       margin-left: -6px;
+       padding-bottom: 5px;
+     }
+     .rdw-link-modal-btn,.rdw-image-modal-btn{
+       box-shadow: 2px 2px 5px #cccccc;
+       transition: 0.5s;
+       padding: 5px;
+       margin: 1px;
+     }
+     .rdw-link-modal-btn:hover{
+       box-shadow: 2px 2px 5px #333333;
+     }
+     .rdw-image-modal-btn:hover{
+       box-shadow: 2px 2px 5px #333333;
+     }
+     #openLinkInNewWindow{
+       margin: 5px;
+     }
+     .rdw-image-modal{
+       width: 209px;
+        background-color: #e8e7f0;
+        padding-left: 5px;
+       padding-right: 5px;
+       margin-left: -86px;
+       padding-bottom: 5px;
+     }
+     .rdw-image-right{
+       text-align: right;
+       width: 100%;
+       display: inline-block;
+     }
+     .rdw-image-left{
+        text-align: left;
+        width: 100%;
+        display: inline-block;
+     }
+     .rdw-image-center{
+       text-align: center;
+        width: 100%;
+        display: inline-block;
      }
