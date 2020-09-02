@@ -16,8 +16,12 @@
        width: 60px;
        height: 40px;
        float: left;
+       box-shadow: 2px 2px 5px #cccccc;
+       transition: 0.5s;
      }
-     
+     .rdw-fontsize-wrapper:hover{
+       box-shadow: 2px 2px 5px #333333;
+     }
      .fontSize a{
        display: block;
        padding: 5px;
@@ -49,6 +53,12 @@
       float: left;
       width: 180px;
       height: 40px;
+        box-shadow: 2px 2px 5px #cccccc;
+       transition: 0.5s;
+       text-align: center
+    }
+    .rdw-fontfamily-wrapper:hover{
+      box-shadow: 2px 2px 5px #333333;
     }
     .rdw-fontfamily-wrapper a{
       display: block;
@@ -110,6 +120,7 @@
        display: inline-block;
        box-shadow: 2px 2px 5px #cccccc;
        transition: 0.5s;
+      
      }
      .rdw-option-active{
        box-shadow: 2px 2px 5px #333333;
