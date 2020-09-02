@@ -4,6 +4,7 @@ import { EditorState, RichUtils } from "draft-js";
 import { Editor } from "react-draft-wysiwyg";
 import { Map } from "immutable";
 import Move from "./Move";
+import Full from "./Full";
 import "./bootstrap.css";
 import "./tolbar.css";
 import "./editor.css";
@@ -28,6 +29,7 @@ function uploadImageCallBack(file) {
 }
 
 function App() {
+  const [moveFull, setMoveFull] = useState(true)
   const [editorState, setEditorState] = useState(() =>
     EditorState.createEmpty()
   );
@@ -35,7 +37,7 @@ function App() {
   return (
     <div className="editor">
       <div>
-       <Move/>
+       <Move/><Full/>
       </div>
       <Editor
         editorState={editorState}
