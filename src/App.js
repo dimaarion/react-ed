@@ -44,7 +44,6 @@ function App() {
             "list",
             "fontSize",
             "blockType",
-
             "fontFamily",
             "textAlign",
             "colorPicker",
@@ -57,7 +56,8 @@ function App() {
           ],
           blockType: {
             inDropdown: false,
-            className: "blockType"
+            className: "blockType",
+            options: ['Normal', 'H1', 'H2', 'H3', 'H4', 'H5', 'H6'],
           },
           inline: {
             inDropdown: false,

@@ -25,16 +25,24 @@
       
      }
      .fontSize a .rdw-dropdown-carettoopen::before{
-     display: inline-block;
-     content: "\27A4";
-     transform: rotate(90deg);
-     font-size: 12px;
+      display: inline-block;
+      content: "\27A4";
+      transform: rotate(90deg);
+      font-size: 12px;
+      margin-left: 2px;
   
-  background-repeat: no-repeat;
-  background-size: 1rem 1rem;
+      background-repeat: no-repeat;
+      background-size: 1rem 1rem;
      }
     .fontSize a .rdw-dropdown-carettoclose::before{
-      content: 'c';
+      display: inline-block;
+      content: "\27A4";
+      transform: rotate(-90deg);
+      font-size: 12px;
+      margin-left: 2px;
+    }
+    .fontSize a:hover{
+      text-decoration: none;
     }
      .rdw-dropdown-carettoopen, .rdw-dropdown-carettoclose{
        display: inline-block;
