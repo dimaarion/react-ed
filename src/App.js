@@ -46,10 +46,8 @@ function App() {
             "fontFamily",
             "textAlign",
             "blockType",
-            "colorPicker",
             "link",
             "embedded",
-            "emoji",
             "image",
             "remove",
             "history"

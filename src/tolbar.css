@@ -65,19 +65,35 @@
     .textAlign{
       float: left;
       width: 160px;
+      height: 40px;
     }
     .blockType{
-      width: 540px;
+      width: 320px;
+      height: 40px;
       float: left;
     }
    .blockType .rdw-option-wrapper{
      width: 40px;
+     height: 40px;
      padding: 5px;
 
    }
    .blockType .rdw-option-wrapper:nth-child(1){
      width: 80px;
 
+   }
+   .link{
+     float: left;
+     width: 190px;
+     height: 40px;
+   }
+   .rdw-embedded-wrapper{
+     float: left;
+     height: 40px;
+   }
+   .rdw-image-wrapper{
+      float: left;
+     height: 40px;
    }
     .rdw-option-wrapper{
        cursor: pointer;
