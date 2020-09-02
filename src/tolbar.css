@@ -220,3 +220,6 @@
         width: 100%;
         display: inline-block;
      }
+     .rdw-image-algment-jptions.popup{
+       position: absolute;
+     }

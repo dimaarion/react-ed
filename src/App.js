@@ -95,7 +95,7 @@ function App() {
             uploadEnabled: false,
             alignmentEnabled: true,
             uploadCallback: undefined,
-            previewImage: false,
+            previewImage: true,
             defaultSize: {
               height: "auto",
               width: "auto"
