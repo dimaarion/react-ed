@@ -5,6 +5,7 @@ import { Editor } from "react-draft-wysiwyg";
 import { Map } from "immutable";
 import "./bootstrap.css";
 import "./tolbar.css";
+import "./editor.css";
 
 function uploadImageCallBack(file) {
   return new Promise((resolve, reject) => {
