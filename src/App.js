@@ -1,7 +1,7 @@
 import React, { useState, useEffect,Component } from "react";
 import PropTypes from 'prop-types';
 import { render } from "react-dom";
-import { EditorState, RichUtils, Modifier } from "draft-js";
+import { EditorState, RichUtils, Modifier,ContentBlock } from "draft-js";
 import { Editor } from "react-draft-wysiwyg";
 import { Map } from "immutable";
 import Move from "./Move";
@@ -17,8 +17,20 @@ function App() {
     EditorState.createEmpty()
   );
   const onEditorStateChange = editorState => setEditorState(editorState);
- 
- 
+  const contentState = editorState.getCurrentContent();
+  
+ useEffect(()=>{
+var selectionState = editorState.getSelection();
+var anchorKey = selectionState.getAnchorKey();
+var currentContent = editorState.getCurrentContent();
+var currentContentBlock = currentContent.getBlockForKey(anchorKey);
+var start = selectionState.getStartOffset();
+var end = selectionState.getEndOffset();
+var selectedText = currentContentBlock.getText().slice(start, end);
+ Object.values(document.querySelector('.editor-class').getElementsByTagName('div'))
+ .map((x)=>x.onclick = (e)=>console.log(e.target.style.height = '100px'))
+ //console.log(selectionState)
+ },[editorState])
 
   return (
     <div className="editor">
