@@ -108,6 +108,14 @@
        height: 40px;
        text-align: center;
        display: inline-block;
+       box-shadow: 2px 2px 5px #cccccc;
+       transition: 0.5s;
+     }
+     .rdw-option-active{
+       box-shadow: 2px 2px 5px #333333;
+     }
+     .rdw-option-wrapper:hover{
+       box-shadow: 2px 2px 5px #333333;
      }
      .move,.full{
        cursor: pointer;
