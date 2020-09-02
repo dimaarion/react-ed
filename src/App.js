@@ -43,9 +43,9 @@ function App() {
             "inline",
             "list",
             "fontSize",
-            "blockType",
             "fontFamily",
             "textAlign",
+            "blockType",
             "colorPicker",
             "link",
             "embedded",
@@ -57,7 +57,7 @@ function App() {
           blockType: {
             inDropdown: false,
             className: "blockType",
-            options: ['Normal', 'H1', 'H2', 'H3', 'H4', 'H5', 'H6'],
+            options: ["Normal", "H1", "H2", "H3", "H4", "H5", "H6"]
           },
           inline: {
             inDropdown: false,
@@ -81,6 +81,19 @@ function App() {
           },
           fontSize: {
             className: "fontSize"
+          },
+          fontFamily: {
+            options: [
+              "Arial",
+              "Georgia",
+              "Impact",
+              "Tahoma",
+              "Times New Roman",
+              "Verdana"
+            ],
+            className: 'fontFamily',
+            component: undefined,
+            dropdownClassName: undefined
           },
           image: {
             uploadCallback: uploadImageCallBack,
