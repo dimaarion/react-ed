@@ -45,6 +45,46 @@
       transform: rotate(-90deg);
       font-size: 12px;
       margin-left: 2px;
+
+    }
+    .rdw-dropdown-optionwrapper li{
+      list-style: none;
+      margin-top: 5px;
+      margin-left: -40px;
+      z-index: 8000;
+      cursor: pointer;
+      text-align: left;
+      padding-left: 15px;
+    }
+    .rdw-dropdown-optionwrapper li:hover{
+      background-color: #cccccc;
+    } 
+    .rdw-dropdown-optionwrapper{
+      overflow: scroll;
+      height: 200px;
+      z-index: 8000;
+      background-color: #ffffff;
+      position: relative;
+      margin-top: 10px;
+    }
+    .rdw-dropdownoption-active{
+      background-color: #cccccc;
+    }
+    .rdw-fontfamily-wrapper a .rdw-dropdown-carettoopen::before{
+      display: inline-block;
+      content: "\27A4";
+      transform: rotate(90deg);
+      font-size: 12px;
+      margin-left: 2px;
+      background-repeat: no-repeat;
+      background-size: 1rem 1rem;
+     }
+    .rdw-fontfamily-wrapper a .rdw-dropdown-carettoclose::before{
+      display: inline-block;
+      content: "\27A4";
+      transform: rotate(-90deg);
+      font-size: 12px;
+      margin-left: 2px;
     }
     .fontSize a:hover{
       text-decoration: none;
@@ -120,7 +160,7 @@
        display: inline-block;
        box-shadow: 2px 2px 5px #cccccc;
        transition: 0.5s;
-      
+      z-index: 0;
      }
      .rdw-option-active{
        box-shadow: 2px 2px 5px #333333;
