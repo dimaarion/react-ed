@@ -49,7 +49,6 @@ function App() {
             "link",
             "embedded",
             "image",
-            "remove",
             "history"
           ],
           blockType: {
