@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,Component } from "react";
+import PropTypes from 'prop-types';
 import { render } from "react-dom";
-import { EditorState, RichUtils } from "draft-js";
+import { EditorState, RichUtils, Modifier } from "draft-js";
 import { Editor } from "react-draft-wysiwyg";
 import { Map } from "immutable";
 import Move from "./Move";
@@ -15,6 +16,9 @@ function App() {
     EditorState.createEmpty()
   );
   const onEditorStateChange = editorState => setEditorState(editorState);
+ 
+ 
+
   return (
     <div className="editor">
       <div onClick={() => setMoveFull(moveFull === false ? true : false)}>
