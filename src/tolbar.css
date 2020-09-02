@@ -62,7 +62,18 @@
     .rdw-dropdown-carettoopen, .rdw-dropdown-carettoclose{
       display: inline-block;
      }
-     
+    .textAlign{
+      float: left;
+      width: 160px;
+    }
+    .blockType{
+      width: 540px;
+      float: left;
+    }
+   .blockType .rdw-option-wrapper{
+     width: 50px;
+
+   }
     .rdw-option-wrapper{
        cursor: pointer;
        padding: 2%;
