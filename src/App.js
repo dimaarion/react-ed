@@ -9,35 +9,24 @@ import "./bootstrap.css";
 import "./tolbar.css";
 import "./editor.css";
 
-function uploadImageCallBack(file) {
-  return new Promise((resolve, reject) => {
-    const xhr = new XMLHttpRequest();
-    xhr.open("POST", "https://api.imgur.com/3/image");
-    xhr.setRequestHeader("Authorization", "Client-ID XXXXX");
-    const data = new FormData();
-    data.append("image", file);
-    xhr.send(data);
-    xhr.addEventListener("load", () => {
-      const response = JSON.parse(xhr.responseText);
-      resolve(response);
-    });
-    xhr.addEventListener("error", () => {
-      const error = JSON.parse(xhr.responseText);
-      // reject(error);
-    });
-  });
-}
-
 function App() {
-  const [moveFull, setMoveFull] = useState(true)
+  const [moveFull, setMoveFull] = useState(true);
   const [editorState, setEditorState] = useState(() =>
     EditorState.createEmpty()
   );
   const onEditorStateChange = editorState => setEditorState(editorState);
   return (
     <div className="editor">
-      <div onClick = {()=>setMoveFull(moveFull === false?true:false)}>
-       {moveFull === true?<div className = "move"><Move/></div>:<div className = "full"><Full/></div>}
+      <div onClick={() => setMoveFull(moveFull === false ? true : false)}>
+        {moveFull === true ? (
+          <div className="move">
+            <Move />
+          </div>
+        ) : (
+          <div className="full">
+            <Full />
+          </div>
+        )}
       </div>
       <Editor
         editorState={editorState}
@@ -100,11 +89,20 @@ function App() {
             dropdownClassName: undefined
           },
           image: {
-            uploadCallback: uploadImageCallBack,
-            alt: { present: true, mandatory: true, className: "image" }
+            
+            alt: { present: true, mandatory: true, className: "image" },
+            popupClassName: undefined,
+            urlEnabled: true,
+            uploadEnabled: false,
+            alignmentEnabled: true,
+            uploadCallback: undefined,
+            previewImage: false,
+            defaultSize: {
+              height: "auto",
+              width: "auto"
+            }
           }
         }}
-        
       />
     </div>
   );
