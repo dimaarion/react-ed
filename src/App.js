@@ -28,7 +28,7 @@ var start = selectionState.getStartOffset();
 var end = selectionState.getEndOffset();
 var selectedText = currentContentBlock.getText().slice(start, end);
  Object.values(document.querySelector('.editor-class').getElementsByTagName('div'))
- .map((x)=>x.onclick = (e)=>console.log(e.target.style.height = '100px'))
+ .map((x)=>x.onclick = (e)=>{e.target.tagName ==='IMG'?console.log(e.target):''})
  //console.log(selectionState)
  },[editorState])
 
