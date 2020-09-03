@@ -39,6 +39,16 @@ function App() {
             : "";
         })
     );
+     Object.values(
+      document.querySelector(".editor-class").getElementsByTagName("div")
+    ).map(
+      x =>
+        (x.onmouseout = e => {
+          e.target.tagName === "IMG"
+            ? setimageR(false)
+            : "";
+        })
+    );
     //console.log(selectionState)
   }, [editorState]);
 
