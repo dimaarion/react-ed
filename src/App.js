@@ -6,6 +6,7 @@ import { Editor } from "react-draft-wysiwyg";
 import { Map } from "immutable";
 import Move from "./Move";
 import Full from "./Full";
+import ImageRemove from "./ImageRemove";
 import CustomOption from "./CustomOption";
 import "./bootstrap.css";
 import "./tolbar.css";
