@@ -15,6 +15,7 @@ import "./editor.css";
 function App() {
   const [moveFull, setMoveFull] = useState(true);
   const [imageR, setimageR] = useState(false);
+  const [mouseImg, setmouseImg] = useState({ x: 0, y: 0 });
   const [editorState, setEditorState] = useState(() =>
     EditorState.createEmpty()
   );
@@ -33,23 +34,20 @@ function App() {
       document.querySelector(".editor-class").getElementsByTagName("div")
     ).map(
       x =>
-        (x.onmouseover = e => {
-          e.target.tagName === "IMG"
-            ? setimageR(true)
-            : "";
+        (x.onclick = e => {
+          e.target.tagName === "IMG" ? setimageR(true) : "";
         })
     );
-     Object.values(
+   
+    Object.values(
       document.querySelector(".editor-class").getElementsByTagName("div")
     ).map(
       x =>
-        (x.onmouseout = e => {
-          e.target.tagName === "IMG"
-            ? setimageR(false)
-            : "";
+        (x.onmousedown = e => {
+          e.target.tagName === "IMG" ? setmouseImg({ x: e.x, y: e.y }) : "";
         })
     );
-    //console.log(selectionState)
+    // let k = document.querySelector(".editor-class").onmousemove = (e)=>console.log(selectionState)
   }, [editorState]);
 
   return (
@@ -65,7 +63,14 @@ function App() {
           </div>
         )}
       </div>
-      {imageR + ''}
+      {imageR === true ? (
+        <div onMouseover={() => setimageR(true)}>
+          {" "}
+          <ImageRemove mouseImg={mouseImg} />
+        </div>
+      ) : (
+        ""
+      )}
       <Editor
         editorState={editorState}
         onEditorStateChange={onEditorStateChange}
