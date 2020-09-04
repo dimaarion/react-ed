@@ -140,7 +140,7 @@ function App() {
             previewImage: true,
             defaultSize: {
               height: "auto",
-              width: "100%"
+              width: "50%"
             }
           }
         }}
