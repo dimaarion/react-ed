@@ -16,6 +16,7 @@ function App() {
   const [moveFull, setMoveFull] = useState(true);
   const [imageR, setimageR] = useState(false);
   const [mouseImg, setmouseImg] = useState({ x: 0, y: 0 });
+  const [razmerImg, setrazmerImg] = useState({ w: '50%', h: 'auto' });
   const [editorState, setEditorState] = useState(() =>
     EditorState.createEmpty()
   );
@@ -139,8 +140,8 @@ function App() {
             uploadCallback: undefined,
             previewImage: true,
             defaultSize: {
-              height: "auto",
-              width: "50%"
+              height: razmerImg.h,
+              width: razmerImg.w
             }
           }
         }}
