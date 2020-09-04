@@ -29,7 +29,14 @@ function ImageRemove(props) {
             id="height"
           />
         </div>
-       
+       <div className="form-group">
+          <label htmlFor="height">Класс</label>
+          <input
+            type="text"
+            className="form-control"
+            id="height"
+          />
+        </div>
         <button type="submit" className="btn btn-primary">
           Сохранить
         </button>
