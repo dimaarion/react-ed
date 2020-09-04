@@ -140,8 +140,8 @@ function App() {
             uploadCallback: undefined,
             previewImage: true,
             defaultSize: {
-              height: razmerImg.h,
-              width: razmerImg.w
+              height: 'auto',
+              width: '50%'
             }
           }
         }}
