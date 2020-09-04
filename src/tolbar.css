@@ -226,6 +226,9 @@
      }
      .image_remove{
        position: absolute;
+       background-color: #ffffff;
+       padding: 10px;
+       border: solid 1px #cccccc;
      }
      .rdw-image-modal-url-input, 
      .rdw-image-modal-alt-input, 

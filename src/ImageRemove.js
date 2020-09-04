@@ -6,14 +6,14 @@ function ImageRemove(props) {
       className="image_remove"
       style={{
         marginLeft: props.mouseImg.x + 20 + "px",
-        marginTop: props.mouseImg.y - 100 + "px"
+        marginTop: props.mouseImg.y  + "px"
       }}
     >
       <div>
-      <h3>Редактирование</h3> 
-      <h3>изображения</h3>
+      <h4>Редактирование</h4> 
+      <h4>изображения</h4>
         <div className="form-group">
-          <label htmlFor="width">Email address</label>
+          <label htmlFor="width">Ширина</label>
           <input
             type="text"
             className="form-control"
@@ -22,25 +22,16 @@ function ImageRemove(props) {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="exampleInputPassword1">Password</label>
+          <label htmlFor="height">Высота</label>
           <input
-            type="password"
+            type="text"
             className="form-control"
-            id="exampleInputPassword1"
+            id="height"
           />
         </div>
-        <div className="form-group form-check">
-          <input
-            type="checkbox"
-            className="form-check-input"
-            id="exampleCheck1"
-          />
-          <label className="form-check-label" htmlFor="exampleCheck1">
-            Check me out
-          </label>
-        </div>
+       
         <button type="submit" className="btn btn-primary">
-          Submit
+          Сохранить
         </button>
       </div>
     </div>
