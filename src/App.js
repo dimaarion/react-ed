@@ -15,6 +15,8 @@ import "./editor.css";
 function App() {
   const [moveFull, setMoveFull] = useState(true);
   const [imageR, setimageR] = useState(false);
+  const [imgW, setimgW] = useState('auto');
+  const [imgH, setimgH] = useState('auto');
   const [mouseImg, setmouseImg] = useState({ x: 0, y: 0 });
   const [razmerImg, setrazmerImg] = useState({ w: '50%', h: 'auto',t:'' });
   const [editorState, setEditorState] = useState(() =>
@@ -43,15 +45,11 @@ function App() {
     );
    
     Object.values(
-      document.querySelector(".editor-class").getElementsByTagName("div")
-    ).map(
-      x =>
-        (x.onmousedown = e => {
-         // e.target.tagName === "IMG" ? setmouseImg({ x: e.x, y: e.y }) : "";
-        })
-    );
-    // let k = document.querySelector(".editor-class").onmousemove = (e)=>console.log(selectionState)
-  }, [editorState]);
+      document.querySelector(".editor-class").getElementsByTagName("img")
+    ).filter(x => x.src === razmerImg.t).map(img => {img.style.width = imgW;img.style.height = imgH; });
+    setimgW(imgW);
+    setimgH(imgH);
+  }, [editorState,razmerImg,imgW,imgH]);
 
   return (
     <div className="editor">
@@ -69,12 +67,13 @@ function App() {
       {imageR === true ? (
         <div onMouseover={() => setimageR(true)}>
           {" "}
-          <ImageRemove mouseImg={mouseImg} razmerImg = {razmerImg} />
+          <ImageRemove mouseImg={mouseImg} razmerImg = {razmerImg} setimgW = {setimgW} setimgH = {setimgH} />
         </div>
       ) : (
         ""
       )}
-      {razmerImg.t}
+      {imgH}
+      <div className = "container">
       <Editor
         editorState={editorState}
         onEditorStateChange={onEditorStateChange}
@@ -143,13 +142,14 @@ function App() {
             uploadCallback: undefined,
             previewImage: true,
             defaultSize: {
-              height: 'auto',
-              width: '50%'
+              height: imgH,
+              width: imgW
             }
           }
         }}
         toolbarCustomButtons={[<CustomOption />]}
       />
+      </div>
     </div>
   );
 }

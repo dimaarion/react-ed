@@ -12,14 +12,15 @@ function ImageRemove(props) {
       <div>
       <h4>Редактирование</h4> 
       <h4>изображения</h4>
-      <div>{props.razmerImg.t}</div>
+      <div>{props.razmerImg.t.split('/')[props.razmerImg.t.split('/').length - 1]}</div>
         <div className="form-group">
           <label htmlFor="width">Ширина</label>
           <input
             type="text"
             className="form-control"
             id="width"
-           
+            defaultValue = {props.razmerImg.w}
+            onChange = {(e)=>props.setimgW(e.target.value)}
           />
         </div>
         <div className="form-group">
@@ -28,14 +29,16 @@ function ImageRemove(props) {
             type="text"
             className="form-control"
             id="height"
+             defaultValue = {props.razmerImg.h}
+               onChange = {(e)=>props.setimgH(e.target.value)}
           />
         </div>
        <div className="form-group">
-          <label htmlFor="height">Класс</label>
+          <label htmlFor="class">Класс</label>
           <input
             type="text"
             className="form-control"
-            id="height"
+            id="class"
           />
         </div>
         <button type="submit" className="btn btn-primary">

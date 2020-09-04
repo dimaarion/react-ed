@@ -2,7 +2,10 @@
   border: solid 1px #cccccccc;
   height: auto;
   min-height: 200px;
-   width: 700px;
+  width: 700px;
+  left:0;
+  right:0;
+  margin: auto;
 }
 .rdw-left-aligned-block{
   text-align: left;
