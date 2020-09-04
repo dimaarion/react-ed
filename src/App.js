@@ -18,7 +18,7 @@ function App() {
   const [imgW, setimgW] = useState('auto');
   const [imgH, setimgH] = useState('auto');
   const [mouseImg, setmouseImg] = useState({ x: 0, y: 0 });
-  const [razmerImg, setrazmerImg] = useState({ w: '50%', h: 'auto',t:'' });
+  const [razmerImg, setrazmerImg] = useState({ w: 'auto', h: 'auto',t:'' });
   const [editorState, setEditorState] = useState(() =>
     EditorState.createEmpty()
   );
@@ -40,17 +40,19 @@ function App() {
         (x.onclick = e => {
           e.target.tagName === "IMG" ? setimageR(true) : "";
           e.target.tagName === "IMG" ? setmouseImg({ x: e.x, y: e.y }) : "";
-          e.target.tagName === "IMG"?setrazmerImg({w:e.target.style.width, h:e.target.style.height,t:e.target.src}):'';
+          e.target.tagName === "IMG"?setimgW(e.target.style.width):'';
+          e.target.tagName === "IMG"?setimgH(e.target.style.height):'';
+          e.target.tagName === "IMG"?setrazmerImg({w:'',h:'',t:e.target.src}):'';
         })
     );
+  
    
-    Object.values(
+  }, [editorState]);
+useEffect(()=>{
+  Object.values(
       document.querySelector(".editor-class").getElementsByTagName("img")
     ).filter(x => x.src === razmerImg.t).map(img => {img.style.width = imgW;img.style.height = imgH; });
-    setimgW(imgW);
-    setimgH(imgH);
-  }, [editorState,razmerImg,imgW,imgH]);
-
+},[razmerImg,imgW,imgH])
   return (
     <div className="editor">
       <div onClick={() => setMoveFull(moveFull === false ? true : false)}>
@@ -67,7 +69,7 @@ function App() {
       {imageR === true ? (
         <div onMouseover={() => setimageR(true)}>
           {" "}
-          <ImageRemove mouseImg={mouseImg} razmerImg = {razmerImg} setimgW = {setimgW} setimgH = {setimgH} />
+          <ImageRemove mouseImg={mouseImg} razmerImg = {razmerImg} setimgW = {setimgW} setimgH = {setimgH} imgH = {imgH}  imgW = {imgW}/>
         </div>
       ) : (
         ""
@@ -141,10 +143,7 @@ function App() {
             alignmentEnabled: true,
             uploadCallback: undefined,
             previewImage: true,
-            defaultSize: {
-              height: imgH,
-              width: imgW
-            }
+           
           }
         }}
         toolbarCustomButtons={[<CustomOption />]}
