@@ -16,7 +16,7 @@ function App() {
   const [moveFull, setMoveFull] = useState(true);
   const [imageR, setimageR] = useState(false);
   const [mouseImg, setmouseImg] = useState({ x: 0, y: 0 });
-  const [razmerImg, setrazmerImg] = useState({ w: '50%', h: 'auto' });
+  const [razmerImg, setrazmerImg] = useState({ w: '50%', h: 'auto',t:'' });
   const [editorState, setEditorState] = useState(() =>
     EditorState.createEmpty()
   );
@@ -37,6 +37,8 @@ function App() {
       x =>
         (x.onclick = e => {
           e.target.tagName === "IMG" ? setimageR(true) : "";
+          e.target.tagName === "IMG" ? setmouseImg({ x: e.x, y: e.y }) : "";
+          e.target.tagName === "IMG"?setrazmerImg({w:e.target.style.width, h:e.target.style.height,t:e.target.src}):'';
         })
     );
    
@@ -45,7 +47,7 @@ function App() {
     ).map(
       x =>
         (x.onmousedown = e => {
-          e.target.tagName === "IMG" ? setmouseImg({ x: e.x, y: e.y }) : "";
+         // e.target.tagName === "IMG" ? setmouseImg({ x: e.x, y: e.y }) : "";
         })
     );
     // let k = document.querySelector(".editor-class").onmousemove = (e)=>console.log(selectionState)
@@ -67,11 +69,12 @@ function App() {
       {imageR === true ? (
         <div onMouseover={() => setimageR(true)}>
           {" "}
-          <ImageRemove mouseImg={mouseImg} />
+          <ImageRemove mouseImg={mouseImg} razmerImg = {razmerImg} />
         </div>
       ) : (
         ""
       )}
+      {razmerImg.t}
       <Editor
         editorState={editorState}
         onEditorStateChange={onEditorStateChange}

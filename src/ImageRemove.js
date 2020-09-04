@@ -12,6 +12,7 @@ function ImageRemove(props) {
       <div>
       <h4>Редактирование</h4> 
       <h4>изображения</h4>
+      <div>{props.razmerImg.t}</div>
         <div className="form-group">
           <label htmlFor="width">Ширина</label>
           <input
