@@ -15,16 +15,22 @@ import "./editor.css";
 function App() {
   const [moveFull, setMoveFull] = useState(true);
   const [imageR, setimageR] = useState(false);
-  const [imgW, setimgW] = useState('auto');
-  const [imgH, setimgH] = useState('auto');
+  const [imgW, setimgW] = useState("auto");
+  const [imgH, setimgH] = useState("auto");
   const [mouseImg, setmouseImg] = useState({ x: 0, y: 0 });
-  const [razmerImg, setrazmerImg] = useState({ w: 'auto', h: 'auto',t:'' });
+  const [razmerImg, setrazmerImg] = useState({ w: "auto", h: "auto", t: "" });
   const [editorState, setEditorState] = useState(() =>
     EditorState.createEmpty()
   );
   const onEditorStateChange = editorState => setEditorState(editorState);
   const contentState = editorState.getCurrentContent();
-
+function test(){
+  var selectionState = editorState.getSelection();
+  var anchorKey = selectionState.getAnchorKey();
+  var currentContent = editorState.getCurrentContent();
+  var currentContentBlock = currentContent.getBlockForKey(anchorKey);
+  return Object.values(document.querySelector('.editor-class').getElementsByTagName("div"))
+}
   useEffect(() => {
     var selectionState = editorState.getSelection();
     var anchorKey = selectionState.getAnchorKey();
@@ -33,26 +39,31 @@ function App() {
     var start = selectionState.getStartOffset();
     var end = selectionState.getEndOffset();
     var selectedText = currentContentBlock.getText().slice(start, end);
-    Object.values(
+    /*Object.values(
       document.querySelector(".editor-class").getElementsByTagName("div")
     ).map(
       x =>
         (x.onclick = e => {
           e.target.tagName === "IMG" ? setimageR(true) : "";
           e.target.tagName === "IMG" ? setmouseImg({ x: e.x, y: e.y }) : "";
-          e.target.tagName === "IMG"?setimgW(e.target.style.width):'';
-          e.target.tagName === "IMG"?setimgH(e.target.style.height):'';
-          e.target.tagName === "IMG"?setrazmerImg({w:'',h:'',t:e.target.src}):'';
+          e.target.tagName === "IMG" ? setimgW(e.target.style.width) : "";
+          e.target.tagName === "IMG" ? setimgH(e.target.style.height) : "";
+          e.target.tagName === "IMG"
+            ? setrazmerImg({ w: "", h: "", t: e.target.src })
+            : "";
         })
-    );
-  
-   
+    );*/
   }, [editorState]);
-useEffect(()=>{
-  Object.values(
+  useEffect(() => {
+    Object.values(
       document.querySelector(".editor-class").getElementsByTagName("img")
-    ).filter(x => x.src === razmerImg.t).map(img => {img.style.width = imgW;img.style.height = imgH; });
-},[razmerImg,imgW,imgH])
+    )
+      .filter(x => x.src === razmerImg.t)
+      .map(img => {
+        img.style.width = imgW;
+        img.style.height = imgH;
+      });
+  }, [razmerImg, imgW, imgH]);
   return (
     <div className="editor">
       <div onClick={() => setMoveFull(moveFull === false ? true : false)}>
@@ -67,87 +78,98 @@ useEffect(()=>{
         )}
       </div>
       {imageR === true ? (
-        <div onMouseover={() => setimageR(true)}>
+        <div onMouseOver={() => setimageR(true)}>
           {" "}
-          <ImageRemove mouseImg={mouseImg} razmerImg = {razmerImg} setimgW = {setimgW} setimgH = {setimgH} imgH = {imgH}  imgW = {imgW}/>
+          <ImageRemove
+            mouseImg={mouseImg}
+            razmerImg={razmerImg}
+            setimgW={setimgW}
+            setimgH={setimgH}
+            imgH={imgH}
+            imgW={imgW}
+          />
         </div>
       ) : (
         ""
       )}
       {imgH}
-      <div className = "container">
-      <Editor
-        editorState={editorState}
-        onEditorStateChange={onEditorStateChange}
-        wrapperClassName="wrapper-class"
-        editorClassName="editor-class"
-        toolbarClassName="toolbar-class"
-        toolbar={{
-          options: [
-            "inline",
-            "list",
-            "fontSize",
-            "fontFamily",
-            "textAlign",
-            "blockType",
-            "link",
-            "image",
-            "history"
-          ],
-          blockType: {
-            inDropdown: false,
-            className: "blockType",
-            options: ["Normal", "H1", "H2", "H3", "H4", "H5", "H6"]
-          },
-          inline: {
-            inDropdown: false,
-            className: "inline"
-          },
-          list: {
-            inDropdown: false,
-            className: "list"
-          },
-          textAlign: {
-            inDropdown: false,
-            className: "textAlign"
-          },
-          link: {
-            inDropdown: false,
-            className: "link"
-          },
-          history: {
-            inDropdown: false,
-            className: "history"
-          },
-          fontSize: {
-            className: "fontSize"
-          },
-          fontFamily: {
+      <div className="container">
+        <Editor
+          editorState={editorState}
+          onEditorStateChange={onEditorStateChange}
+          wrapperClassName="wrapper-class"
+          editorClassName="editor-class"
+          toolbarClassName="toolbar-class"
+          toolbar={{
             options: [
-              "Arial",
-              "Georgia",
-              "Impact",
-              "Tahoma",
-              "Times New Roman",
-              "Verdana"
+              "inline",
+              "list",
+              "fontSize",
+              "fontFamily",
+              "textAlign",
+              "blockType",
+              "link",
+              "image",
+              "history"
             ],
-            className: "fontFamily",
-            component: undefined,
-            dropdownClassName: undefined
-          },
-          image: {
-            alt: { present: true, mandatory: true, className: "image" },
-            popupClassName: undefined,
-            urlEnabled: true,
-            uploadEnabled: false,
-            alignmentEnabled: true,
-            uploadCallback: undefined,
-            previewImage: true,
-           
-          }
-        }}
-        toolbarCustomButtons={[<CustomOption />]}
-      />
+            blockType: {
+              inDropdown: false,
+              className: "blockType",
+              options: ["Normal", "H1", "H2", "H3", "H4", "H5", "H6"]
+            },
+            inline: {
+              inDropdown: false,
+              className: "inline"
+            },
+            list: {
+              inDropdown: false,
+              className: "list"
+            },
+            textAlign: {
+              inDropdown: false,
+              className: "textAlign"
+            },
+            link: {
+              inDropdown: false,
+              className: "link"
+            },
+            history: {
+              inDropdown: false,
+              className: "history"
+            },
+            fontSize: {
+              className: "fontSize"
+            },
+            fontFamily: {
+              options: [
+                "Arial",
+                "Georgia",
+                "Impact",
+                "Tahoma",
+                "Times New Roman",
+                "Verdana"
+              ],
+              className: "fontFamily",
+              component: undefined,
+              dropdownClassName: undefined
+            },
+            image: {
+              alt: { present: true, mandatory: true, className: "image" },
+              popupClassName: undefined,
+              urlEnabled: true,
+              uploadEnabled: false,
+              alignmentEnabled: true,
+              uploadCallback: undefined,
+              previewImage: true,
+              defaultSize: {
+                height: "auto",
+                width: "100%"
+              }
+            }
+          }}
+          toolbarCustomButtons={[<CustomOption />]}
+          onFocus ={(e) => console.log(test())}
+        />
       </div>
     </div>
   );
