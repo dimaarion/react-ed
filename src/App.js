@@ -50,16 +50,7 @@ function test(e){
         })
     );
   }, []);
-  useEffect(() => {
-    Object.values(
-      document.querySelector(".editor-class").getElementsByTagName("img")
-    )
-      .filter(x => x.src === razmerImg.t)
-      .map(img => {
-        img.style.width = imgW;
-        img.style.height = imgH;
-      });
-  }, [razmerImg, imgW, imgH]);
+ 
   return (
     <div className="editor">
       <div onClick={() => setMoveFull(moveFull === false ? true : false)}>
