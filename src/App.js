@@ -50,7 +50,7 @@ function test(e){
          
         })
     );
-      let f =  document.querySelector('.editor-class div');
+      let f =  document.querySelector('.editor-class').getElementsByTagName('div');
       console.log(f)
   }, [editorState]);
  
