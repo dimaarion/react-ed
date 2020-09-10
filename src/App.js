@@ -24,12 +24,12 @@ function App() {
   );
   const onEditorStateChange = editorState => setEditorState(editorState);
   const contentState = editorState.getCurrentContent();
-function test(){
+function test(e){
   var selectionState = editorState.getSelection();
   var anchorKey = selectionState.getAnchorKey();
   var currentContent = editorState.getCurrentContent();
   var currentContentBlock = currentContent.getBlockForKey(anchorKey);
-  return Object.values(document.querySelector('.editor-class').getElementsByTagName("img"))
+  return e.target.style.width = '50%'
 }
   useEffect(() => {
     var selectionState = editorState.getSelection();
@@ -39,21 +39,17 @@ function test(){
     var start = selectionState.getStartOffset();
     var end = selectionState.getEndOffset();
     var selectedText = currentContentBlock.getText().slice(start, end);
-    /*Object.values(
+    Object.values(
       document.querySelector(".editor-class").getElementsByTagName("div")
     ).map(
       x =>
         (x.onclick = e => {
           e.target.tagName === "IMG" ? setimageR(true) : "";
-          e.target.tagName === "IMG" ? setmouseImg({ x: e.x, y: e.y }) : "";
-          e.target.tagName === "IMG" ? setimgW(e.target.style.width) : "";
-          e.target.tagName === "IMG" ? setimgH(e.target.style.height) : "";
-          e.target.tagName === "IMG"
-            ? setrazmerImg({ w: "", h: "", t: e.target.src })
-            : "";
+          e.target.tagName === "IMG" ? test(e) :'';
+         
         })
-    );*/
-  }, [editorState]);
+    );
+  }, []);
   useEffect(() => {
     Object.values(
       document.querySelector(".editor-class").getElementsByTagName("img")
@@ -168,7 +164,7 @@ function test(){
             }
           }}
           toolbarCustomButtons={[<CustomOption />]}
-          onFocus ={(e) => console.log(test())}
+        
         />
       </div>
     </div>
