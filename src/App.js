@@ -29,7 +29,7 @@ function test(){
   var anchorKey = selectionState.getAnchorKey();
   var currentContent = editorState.getCurrentContent();
   var currentContentBlock = currentContent.getBlockForKey(anchorKey);
-  return Object.values(document.querySelector('.editor-class').getElementsByTagName("div"))
+  return Object.values(document.querySelector('.editor-class').getElementsByTagName("img"))
 }
   useEffect(() => {
     var selectionState = editorState.getSelection();
