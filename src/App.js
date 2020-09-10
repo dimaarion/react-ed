@@ -29,7 +29,8 @@ function test(e){
   var anchorKey = selectionState.getAnchorKey();
   var currentContent = editorState.getCurrentContent();
   var currentContentBlock = currentContent.getBlockForKey(anchorKey);
-  return e.target.style.width = '50%'
+
+  
 }
   useEffect(() => {
     var selectionState = editorState.getSelection();
@@ -49,7 +50,9 @@ function test(e){
          
         })
     );
-  }, []);
+      let f =  document.querySelector('.editor-class div');
+      console.log(f)
+  }, [editorState]);
  
   return (
     <div className="editor">
