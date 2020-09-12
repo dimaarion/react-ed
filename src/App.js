@@ -46,8 +46,8 @@ function test(e){
       x =>
         (x.onclick = e => {
           
-          e.target.tagName === "DIV" ? console.log(e) : "";
-          e.target.tagName === "IMG" ? test(e) :'';
+          e.target.tagName === "IMG" ? setimageR(true) : "";
+          e.target.tagName === "IMG" ? console.log(e) :'';
          
         })
     );
