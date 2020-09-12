@@ -45,13 +45,14 @@ function test(e){
     ).map(
       x =>
         (x.onclick = e => {
-          e.target.tagName === "IMG" ? setimageR(true) : "";
+          
+          e.target.tagName === "DIV" ? console.log(e) : "";
           e.target.tagName === "IMG" ? test(e) :'';
          
         })
     );
       let f =  document.querySelector('.editor-class').getElementsByTagName('div');
-      console.log(f)
+      
   }, [editorState]);
  
   return (
