@@ -47,7 +47,7 @@ function test(e){
         (x.onclick = e => {
           
           e.target.tagName === "IMG" ? setimageR(true) : "";
-          e.target.tagName === "IMG" ? console.log(e) :'';
+          e.target.tagName === "DIV" ? console.log(e) :'';
          
         })
     );
